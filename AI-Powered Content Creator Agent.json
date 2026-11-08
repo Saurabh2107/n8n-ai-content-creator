@@ -1,0 +1,678 @@
+{
+  "name": "AI-Powered Content Creator Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an expert B2B technology content\nstrategist and professional LinkedIn content\nwriter.\n\nYour responsibility is to create high-quality,\ninformative, insightful and engaging LinkedIn\nposts based on the research provided.\n\nOBJECTIVE:\nGenerate professional LinkedIn content that\nattracts technology professionals, business\nleaders, IT decision-makers and enterprise\nexecutives.\n\nCONTENT GUIDELINES:\n\n1. Start with a powerful and engaging hook\n   that captures the reader's attention.\n\n2. Explain the topic in a simple but technically\n   accurate manner.\n\n3. Include important facts, findings and\n   industry insights from the supplied research.\n\n4. Highlight real-world enterprise applications\n   and business value wherever supported\n   by the research.\n\n5. Use short paragraphs and bullet points\n   where appropriate.\n\n6. Maintain a professional, conversational\n   and thought-provoking tone.\n\n7. Avoid unnecessary technical jargon.\n\n8. Never invent statistics, quotations,\n   examples or factual claims.\n\n9. Do not present unsupported predictions\n   as established facts.\n\n10. End with an engaging question that\n    encourages professional discussion.\n\n11. Include 3-5 relevant hashtags.\n\nLENGTH REQUIREMENT:\nThe LinkedIn post must contain 150-250 words.\n\nQUALITY REQUIREMENTS:\n- Ensure logical flow and readability.\n- Avoid repetitive statements.\n- Use the supplied research as the factual\n  foundation.\n- Do not copy entire sentences from sources.\n- Do not include fabricated citations.\n\nOUTPUT FORMAT:\nReturn only the final LinkedIn post.\nDo not include explanations, introductory\ncomments or descriptions of your process."
+            },
+            {
+              "content": "={{ `Create a professional LinkedIn post on the following topic.\n\nTOPIC:\n${$json.Topic}\n\nRESEARCH INFORMATION:\n${$json.Research_Context}\n\nUse the supplied research as your factual foundation.\n\nIdentify the most important and interesting insights relevant to enterprise technology.\n\nMake the content useful for technology professionals, business leaders and enterprise decision-makers.\n\nEnsure the final post follows all the instructions provided in the System message.` }}"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        -528,
+        -320
+      ],
+      "id": "8a275047-2046-4b6b-bad7-2ec2fe9590c3",
+      "name": "Open AI - LinkedIn Generator",
+      "credentials": {
+        "openAiApi": {
+          "id": "b2aZkEGCiTY9RlXJ",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an expert social media content creator\nspecializing in X (formerly Twitter).\n\nYour responsibility is to create concise,\nengaging and informative posts about technology.\n\nFollow these instructions:\n\n1. Write in a crisp and engaging style.\n2. Start with an attention-grabbing statement.\n3. Communicate the most important insight.\n4. Avoid unnecessary explanations.\n5. Use simple and accessible language.\n6. Maintain technical accuracy.\n7. Never invent facts, statistics or claims.\n8. Include relevant hashtags where appropriate.\n9. Encourage engagement naturally.\n\nLENGTH REQUIREMENT:\nThe final post must not exceed 280 characters,\nincluding spaces and hashtags.\n\nQUALITY REQUIREMENTS:\n- Focus on one key insight.\n- Avoid repetitive statements.\n- Use research-supported information.\n- Avoid excessive hashtags.\n- Do not use unsupported statistics.\n\nOUTPUT FORMAT:\nReturn only the final X post.\nDo not include explanations or commentary."
+            },
+            {
+              "content": "=Create an engaging X post about the following\ntopic.\n\nTOPIC:\n{{ $json.Topic }}\n\nRESEARCH INFORMATION:\n{{ $json.Research_Context }}\n\nIdentify the most interesting insight and\ncommunicate it in a concise and engaging manner.\n\nThe content should be relevant to technology\nprofessionals and business leaders.\n\nEnsure the final response is within 280 characters."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        -400,
+        -80
+      ],
+      "id": "c4de1738-9a95-4a5c-b946-dd5b498e7228",
+      "name": "OpenAI - X Generator",
+      "credentials": {
+        "openAiApi": {
+          "id": "b2aZkEGCiTY9RlXJ",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "responses": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are an experienced technology journalist,\nprofessional blog writer and technology\ncontent strategist.\n\nYour responsibility is to create informative,\nengaging and technically accurate blog summaries\nbased on the research provided.\n\nOBJECTIVE:\n\nGenerate a high-quality blog summary that\nexplains the topic, its significance and its\nrelevance to the technology industry.\n\nCONTENT GUIDELINES:\n\n1. Start with a meaningful introduction that\n   establishes the importance of the topic.\n\n2. Explain the concept clearly and accurately.\n\n3. Include important findings and insights\n   from the supplied research.\n\n4. Discuss relevant enterprise applications\n   and practical use cases.\n\n5. Explain the business or technological\n   implications wherever supported by research.\n\n6. Maintain logical flow between paragraphs.\n\n7. Use technically accurate terminology.\n\n8. Write in a professional but accessible style.\n\n9. Avoid unnecessary promotional language.\n\n10. Never invent statistics, facts, quotations\n    or research findings.\n\n11. Do not repeat the same information.\n\n12. End with a meaningful conclusion.\n\nLENGTH REQUIREMENT:\n\nThe final blog summary must contain\n150-200 words.\n\nQUALITY REQUIREMENTS:\n\n- Use the supplied research as the factual basis.\n- Maintain factual accuracy.\n- Do not copy entire sentences from sources.\n- Avoid unsupported predictions.\n- Make the content useful to technology\n  professionals and business readers.\n\nOUTPUT FORMAT:\n\nReturn only the final blog summary.\n\nDo not include explanations, instructions\nor commentary about the writing process."
+            },
+            {
+              "content": "=Write a blog summary on the following topic.\n\nTOPIC:\n{{ $json.Topic }}\n\nRESEARCH INFORMATION:\n{{ $json.Research_Context }}\n\nTASK:\n\nAnalyze the supplied research and identify\nthe most important information about the topic.\n\nExplain the concept, its relevance, important\nindustry insights and practical enterprise\napplications.\n\nPresent the information in a clear,\ninformative and well-structured manner.\n\nUse the research as your factual foundation.\n\nEnsure the final output follows all the\ninstructions provided in the System message.\n\nThe final blog summary must contain\n150-200 words."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2.3,
+      "position": [
+        -432,
+        176
+      ],
+      "id": "37a827e3-a7a8-44fe-a6ae-844b81f0d794",
+      "name": "OpenAI - Blog Generator",
+      "credentials": {
+        "openAiApi": {
+          "id": "b2aZkEGCiTY9RlXJ",
+          "name": "OpenAI account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b0d3d9b0-f7a6-416d-a361-94964b6d79fa",
+              "name": "LinkedIn_Post",
+              "value": "={{ $json.output[0].content[0].text }}",
+              "type": "string"
+            },
+            {
+              "id": "847af6c4-9ee6-4424-82ef-80959b6ec5b4",
+              "name": "Topic",
+              "value": "={{ $('Prepare Research Context').first().json.Topic }}",
+              "type": "string"
+            },
+            {
+              "id": "151f42d1-eac0-44c8-bd89-ba92c026a55a",
+              "name": "=Row_Number",
+              "value": "={{ $('Prepare Research Context').first().json.Row_Number }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        0,
+        -320
+      ],
+      "id": "e4cdf667-1bdb-4ee9-9411-02341082be19",
+      "name": "Prepare LinkedIn Output"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "08e34a58-86d0-4043-b2c0-5b3ae42e4cf4",
+              "name": "X_Post",
+              "value": "={{ $json.output[0].content[0].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        32,
+        -128
+      ],
+      "id": "59e09972-4abe-4d9f-a86b-e6aecbd39f89",
+      "name": "Prepare X Output"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "2803bfef-c7a0-4b7e-be73-62c4a21d7f54",
+              "name": "Blog_Summary",
+              "value": "={{ $json.output[0].content[0].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        48,
+        96
+      ],
+      "id": "f2ef4dfc-9d70-41f3-b913-18b7014e6a92",
+      "name": "Prepare Blog Output"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        256,
+        -224
+      ],
+      "id": "463473a6-624c-4116-a93c-6b376a5ad913",
+      "name": "Merge LinkedIn + X"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        448,
+        16
+      ],
+      "id": "6fa505fb-f499-45f7-8964-a7283ed7487c",
+      "name": "Merge All Content"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1488,
+        -240
+      ],
+      "id": "d90bd31f-9299-4e41-871c-746c0b15f541",
+      "name": "Manual Trigger"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1HupLkPfUPUGfb_ifUlIrTobO42y957MaRhCTgie1fxA",
+          "mode": "list",
+          "cachedResultName": "AI_Content_Creator",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1HupLkPfUPUGfb_ifUlIrTobO42y957MaRhCTgie1fxA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1HupLkPfUPUGfb_ifUlIrTobO42y957MaRhCTgie1fxA/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "Pending"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -1264,
+        -80
+      ],
+      "id": "509825a1-1bf1-4276-abb5-f1bc05731f72",
+      "name": "Get Pending Topic",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZlanFArID8zuT2Ez",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.tavily.com/search",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query\": \"{{ $json.Topic }}\",\n  \"search_depth\": \"advanced\",\n  \"topic\": \"general\",\n  \"max_results\": 5,\n  \"include_answer\": true,\n  \"include_raw_content\": false\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.5,
+      "position": [
+        -1120,
+        -352
+      ],
+      "id": "0eaa65cf-e629-484e-b623-955703ca9f35",
+      "name": "Tavily – Research",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "15H3w1CEIzjQjk0a",
+          "name": "Header Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "results",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1.1,
+      "position": [
+        -1008,
+        -96
+      ],
+      "id": "6e457a1b-19d3-4a74-8e10-fb89c73517d3",
+      "name": "Split Research Results"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "destinationFieldName": "research_results",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        -832,
+        -336
+      ],
+      "id": "7fd87fd1-89b9-4873-9d21-0b28441f113d",
+      "name": "Aggregate Research"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f1c77fe1-ca12-4dd3-847e-c3fb2493967e",
+              "name": "Topic",
+              "value": "={{ $('Get Pending Topic').first().json.Topic }}",
+              "type": "string"
+            },
+            {
+              "id": "7c101f10-2187-4d42-817c-666d761a9d9a",
+              "name": "=Row_Number",
+              "value": "={{ $('Get Pending Topic').first().json.row_number }}",
+              "type": "number"
+            },
+            {
+              "id": "ebcaaab5-0f43-4511-97ec-331b661ebb64",
+              "name": "Research_Context",
+              "value": "={{ $json.research_results.map((r, i) =>   `Source ${i+1} Title: ${r.results.title} URL: ${r.results.url} Content: ${r.results.content}` ).join('\\n\\n') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        -752,
+        -80
+      ],
+      "id": "a2370fe7-5a77-430b-a6d8-c63aab488387",
+      "name": "Prepare Research Context"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1HupLkPfUPUGfb_ifUlIrTobO42y957MaRhCTgie1fxA",
+          "mode": "list",
+          "cachedResultName": "AI_Content_Creator",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1HupLkPfUPUGfb_ifUlIrTobO42y957MaRhCTgie1fxA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1HupLkPfUPUGfb_ifUlIrTobO42y957MaRhCTgie1fxA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Topic": "={{ $json.Topic }}",
+            "Status": "Completed",
+            "LinkedIn_Post": "={{ $json.LinkedIn_Post }}",
+            "X_Post": "={{ $json.X_Post }}",
+            "Blog_Summary": "={{ $json.Blog_Summary }}"
+          },
+          "matchingColumns": [
+            "Topic"
+          ],
+          "schema": [
+            {
+              "id": "Topic",
+              "displayName": "Topic",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "LinkedIn_Post",
+              "displayName": "LinkedIn_Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "X_Post",
+              "displayName": "X_Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Blog_Summary",
+              "displayName": "Blog_Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Published_Date",
+              "displayName": "Published_Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        672,
+        16
+      ],
+      "id": "b6774cc3-65c6-42fe-89a3-43e8e5d811da",
+      "name": "Update Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZlanFArID8zuT2Ez",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Open AI - LinkedIn Generator": {
+      "main": [
+        [
+          {
+            "node": "Prepare LinkedIn Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - X Generator": {
+      "main": [
+        [
+          {
+            "node": "Prepare X Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI - Blog Generator": {
+      "main": [
+        [
+          {
+            "node": "Prepare Blog Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare LinkedIn Output": {
+      "main": [
+        [
+          {
+            "node": "Merge LinkedIn + X",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare X Output": {
+      "main": [
+        [
+          {
+            "node": "Merge LinkedIn + X",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge LinkedIn + X": {
+      "main": [
+        [
+          {
+            "node": "Merge All Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Blog Output": {
+      "main": [
+        [
+          {
+            "node": "Merge All Content",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge All Content": {
+      "main": [
+        [
+          {
+            "node": "Update Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Pending Topic",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Pending Topic": {
+      "main": [
+        [
+          {
+            "node": "Tavily – Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tavily – Research": {
+      "main": [
+        [
+          {
+            "node": "Split Research Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Research Results": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Research",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Research": {
+      "main": [
+        [
+          {
+            "node": "Prepare Research Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Research Context": {
+      "main": [
+        [
+          {
+            "node": "Open AI - LinkedIn Generator",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI - X Generator",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenAI - Blog Generator",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "f4054843-434f-41c8-a4be-4b7ff572ff0c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "92a2c5b89a951c416be05c930623a83638615a30a7ce955bb03a0ca714be71ee"
+  },
+  "nodeGroups": [],
+  "id": "ehOmISJACQ5iHXj9",
+  "tags": []
+}
